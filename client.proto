@@ -20,6 +20,7 @@ message Ping
 message ChangeColumn
 {
     bool addRemove = 1; //True to add a column, false to remove a column
+    //TODO: We need to replace this with an enum that also allows renaming columns
     string columnName = 2;
 }
 

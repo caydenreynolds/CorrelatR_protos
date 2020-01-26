@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_package = "com.example.protos";
+
+message ServerMessage 
+{
+    oneof message
+    {
+        StatusMessage statusMessage = 1;
+    }
+}
+
+message StatusMessage
+{
+    string text = 1;
+    bool error = 2; //Whether or not this status message is an error message
+}
