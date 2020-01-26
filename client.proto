@@ -1,12 +1,20 @@
 syntax = "proto3";
 
+option java_package = "com.example.protos";
+
 message ClientMessage
 {
     oneof message
     {
         ChangeColumn changeColumn = 1;
         UpdateData updateData = 2;
+        Ping ping = 3;
     }
+}
+
+message Ping
+{
+    
 }
 
 message ChangeColumn
