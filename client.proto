@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option java_package = "com.example.protos";
+
+message ClientMessage
+{
+    oneof message
+    {
+        ChangeColumn changeColumn = 1;
+        UpdateData updateData = 2;
+        Ping ping = 3;
+        GraphRequest graphRequest = 4;        
+    }
+}
+
+message GraphRequest
+{
+    string vertical = 1;
+    string horizontal = 2;
+}
+
+message Ping
+{
+    
+}
+
+message ChangeColumn
+{
+    bool addRemove = 1; //True to add a column, false to remove a column
+    //TODO: We need to replace this with an enum that also allows renaming columns
+    repeated string columnName = 2;
+}
+
+message UpdateData
+{
+    int64 date = 1; //Date in ms
+    repeated NewData newData = 2;
+}
+
+message NewData
+{
+    double value = 2;
+    string columnName = 3;
+}
