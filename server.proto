@@ -5,7 +5,7 @@ option java_package = "com.example.protos";
 message ServerMessage 
 {
     StatusMessage statusMessage = 1;
-    bytes image = 2;
+    bytes graphImage = 2;
 }
 
 message StatusMessage

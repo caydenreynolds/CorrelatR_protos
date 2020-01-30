@@ -9,11 +9,11 @@ message ClientMessage
         ChangeColumn changeColumn = 1;
         UpdateData updateData = 2;
         Ping ping = 3;
-        ImageRequest imageRequest = 4;        
+        GraphRequest graphRequest = 4;        
     }
 }
 
-message ImageRequest
+message GraphRequest
 {
     string vertical = 1;
     string horizontal = 2;
