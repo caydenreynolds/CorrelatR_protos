@@ -9,7 +9,14 @@ message ClientMessage
         ChangeColumn changeColumn = 1;
         UpdateData updateData = 2;
         Ping ping = 3;
+        GraphRequest graphRequest = 4;        
     }
+}
+
+message GraphRequest
+{
+    string vertical = 1;
+    string horizontal = 2;
 }
 
 message Ping
@@ -20,24 +27,18 @@ message Ping
 message ChangeColumn
 {
     bool addRemove = 1; //True to add a column, false to remove a column
-    string columnName = 2;
+    //TODO: We need to replace this with an enum that also allows renaming columns
+    repeated string columnName = 2;
 }
 
 message UpdateData
 {
-    repeated NewData newData = 1;
+    int64 date = 1; //Date in ms
+    repeated NewData newData = 2;
 }
 
 message NewData
 {
-    Date date = 1;
     double value = 2;
     string columnName = 3;
-}
-
-message Date 
-{
-    int64 day = 1;
-    int64 month = 2;
-    int64 year = 3;
 }
