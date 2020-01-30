@@ -9,7 +9,14 @@ message ClientMessage
         ChangeColumn changeColumn = 1;
         UpdateData updateData = 2;
         Ping ping = 3;
+        ImageRequest imageRequest = 4;        
     }
+}
+
+message ImageRequest
+{
+    string vertical = 1;
+    string horizontal = 2;
 }
 
 message Ping
