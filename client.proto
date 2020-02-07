@@ -9,7 +9,8 @@ message ClientMessage
         ChangeColumn changeColumn = 1;
         UpdateData updateData = 2;
         Ping ping = 3;
-        GraphRequest graphRequest = 4;        
+        GraphRequest graphRequest = 4;
+        ColumnsRequest columnsRequest = 5;   
     }
 }
 
@@ -19,10 +20,9 @@ message GraphRequest
     string horizontal = 2;
 }
 
-message Ping
-{
-    
-}
+message ColumnsRequest {}
+
+message Ping {}
 
 //Describes a change to the structure of the database.
 //To:
