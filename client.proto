@@ -9,7 +9,8 @@ message ClientMessage
         ChangeColumn changeColumn = 1;
         UpdateData updateData = 2;
         Ping ping = 3;
-        GraphRequest graphRequest = 4;        
+        GraphRequest graphRequest = 4;
+        ColumnsRequest columnsRequest = 5;   
     }
 }
 
@@ -19,16 +20,19 @@ message GraphRequest
     string horizontal = 2;
 }
 
-message Ping
-{
-    
-}
+message ColumnsRequest {}
 
+message Ping {}
+
+//Describes a change to the structure of the database.
+//To:
+//  Add a column: Set newColumnName to the desired column name. Do not set oldColumnName.
+//  Remove a column: Set oldColumnName to the desired column. Do not set newColumnName.
+//  Rename a column: Set oldColumnName to the column to update. Set newColumnName to column's new name
 message ChangeColumn
-{
-    bool addRemove = 1; //True to add a column, false to remove a column
-    //TODO: We need to replace this with an enum that also allows renaming columns
-    repeated string columnName = 2;
+{ 
+    string oldColumnName = 1;
+    string newColumnName = 2;
 }
 
 message UpdateData
