@@ -10,7 +10,8 @@ message ClientMessage
         UpdateData updateData = 2;
         Ping ping = 3;
         GraphRequest graphRequest = 4;
-        ColumnsRequest columnsRequest = 5;   
+        ColumnsRequest columnsRequest = 5;  
+        DataRequest dataRequest = 6; 
     }
 }
 
@@ -20,6 +21,13 @@ message GraphRequest
     string horizontal = 2;
 }
 
+//Request tracked columns and their respective data for a given day
+message DataRequest
+{
+    int64 date = 1;
+}
+
+//Request all tracked columns
 message ColumnsRequest {}
 
 message Ping {}
@@ -35,14 +43,15 @@ message ChangeColumn
     string newColumnName = 2;
 }
 
+//Update the values stored in the database
 message UpdateData
 {
     int64 date = 1; //Date in ms
-    repeated NewData newData = 2;
+    repeated DataPoint newData = 2;
 }
 
-message NewData
+message DataPoint
 {
-    double value = 2;
-    string columnName = 3;
+    double value = 1;
+    string columnName = 2;
 }
