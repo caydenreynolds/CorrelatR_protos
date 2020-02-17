@@ -12,6 +12,6 @@ message ServerMessage
 
 message StatusMessage
 {
-    string text = 1;
+    string text = 1; //Text to display to user
     bool error = 2; //Whether or not this status message is an error message
 }
