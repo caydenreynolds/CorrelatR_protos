@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "com.example.protos";
+
+message DataPoint
+{
+    double value = 1;
+    string columnName = 2;
+}

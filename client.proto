@@ -2,6 +2,8 @@ syntax = "proto3";
 
 option java_package = "com.example.protos";
 
+import "shared.proto";
+
 message ClientMessage
 {
     oneof message
@@ -50,8 +52,3 @@ message UpdateData
     repeated DataPoint newData = 2;
 }
 
-message DataPoint
-{
-    double value = 1;
-    string columnName = 2;
-}

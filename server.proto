@@ -2,12 +2,13 @@ syntax = "proto3";
 
 option java_package = "com.example.protos";
 
+import "shared.proto";
+
 message ServerMessage 
 {
     StatusMessage statusMessage = 1;
     bytes graphImage = 2;
-    repeated string columnNames = 3;
-    repeated float columnValues = 4;
+    repeated DataPoint dataPoints = 3;
 }
 
 message StatusMessage
