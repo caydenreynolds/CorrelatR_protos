@@ -4,9 +4,7 @@ option java_package = "com.example.protos";
 
 message DataPoint
 {
-    oneof optional_value {
-        double value = 1;
-    }
-    
+    double value = 1;
     string columnName = 2;
+    bool null = 3; //We can't nullify value, so we have to use a flag
 }
