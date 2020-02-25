@@ -5,7 +5,7 @@ option java_package = "com.example.protos";
 message DataPoint
 {
     oneof optional_value {
-        float value = 1;
+        double value = 1;
     }
     
     string columnName = 2;
