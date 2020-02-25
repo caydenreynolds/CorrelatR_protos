@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_package = "com.example.protos";
+
+message DataPoint
+{
+    double value = 1;
+    string columnName = 2;
+    bool null = 3; //We can't nullify value, so we have to use a flag
+}
